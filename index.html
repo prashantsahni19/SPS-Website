@@ -1,0 +1,383 @@
+<title>Sahni Precision Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ground:#f4f4f2;
+    --panel:#ffffff;
+    --ink:#111111;
+    --muted:#6b6b64;
+    --line:#d8d8d1;
+    --line-strong:#111111;
+    --logo-cut:var(--panel);
+    --sans:'IBM Plex Sans',system-ui,-apple-system,Segoe UI,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --disp:'Michroma','IBM Plex Sans',sans-serif;
+    --maxw:1120px;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ground:#111111;
+      --panel:#1a1a19;
+      --ink:#f4f4f2;
+      --muted:#9a9a90;
+      --line:#33332f;
+      --line-strong:#f4f4f2;
+      --logo-cut:var(--panel);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#111111;
+    --panel:#1a1a19;
+    --ink:#f4f4f2;
+    --muted:#9a9a90;
+    --line:#33332f;
+    --line-strong:#f4f4f2;
+    --logo-cut:var(--panel);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---- SPS logo, rebuilt to spec (Michroma sheared 8°, notch cuts, rule) ---- */
+  .sps{display:inline-flex;flex-direction:column;align-items:flex-start;gap:.16em;width:max-content}
+  .sps--center{align-items:center}
+  .sps__word{
+    font-family:var(--disp);line-height:1;letter-spacing:0.02em;
+    display:inline-flex;transform:skewX(-8deg);color:var(--ink);
+  }
+  .sps__s{position:relative;display:inline-block}
+  .sps__s::before,.sps__s::after{content:"";position:absolute;background:var(--logo-cut)}
+  .sps__s::before{left:.80em;bottom:.563em;width:.20em;height:.107em}
+  .sps__s::after{left:.03em;bottom:.190em;width:.16em;height:.133em}
+  .sps__rule{height:.085em;width:100%;background:currentColor}
+  .sps__desc{
+    font-family:var(--mono);font-weight:700;letter-spacing:0.18em;
+    line-height:1;text-transform:uppercase;color:var(--ink);
+  }
+
+  /* ---- header ---- */
+  header.top{position:sticky;top:0;z-index:20;background:var(--ink);color:var(--ground)}
+  header.top .bar{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  header.top .sps__word,header.top .sps__desc{color:var(--ground)}
+  header.top{--logo-cut:var(--ink)}
+  .top__lockup{display:flex;align-items:center;gap:16px}
+  .top__lockup .sps__word{font-size:34px}
+  .top__lockup .sps__rule{height:4px}
+  .top__bar-v{width:3px;height:30px;background:var(--ground);align-self:center}
+  .top__desc{font-family:var(--mono);font-weight:700;font-size:11px;letter-spacing:0.16em;line-height:1.35;text-transform:uppercase;color:var(--ground)}
+  nav.top__nav{display:flex;gap:26px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  nav.top__nav a{text-decoration:none;opacity:.75;padding:4px 0;border-bottom:1px solid transparent}
+  nav.top__nav a:hover{opacity:1;border-bottom-color:var(--ground)}
+  .theme-btn{
+    background:none;border:1px solid rgba(255,255,255,.4);color:var(--ground);
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    padding:6px 10px;cursor:pointer;border-radius:0;
+  }
+  .theme-btn:hover{border-color:var(--ground)}
+  @media(max-width:760px){nav.top__nav{display:none}.top__desc{display:none}}
+
+  /* ---- eyebrow / field label ---- */
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---- hero ---- */
+  .hero{border-bottom:1px solid var(--line);padding:0}
+  .hero__inner{
+    max-width:var(--maxw);margin:0 auto;padding:72px 24px 64px;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;
+  }
+  .hero__mark .sps__word{font-size:clamp(72px,13vw,168px)}
+  .hero__mark .sps__rule{height:12px}
+  .hero__mark .sps__desc{font-size:clamp(11px,1.4vw,16px);letter-spacing:0.22em}
+  .hero h1{
+    font-family:var(--sans);font-weight:600;font-size:clamp(22px,3vw,30px);
+    line-height:1.25;margin:0 0 18px;text-wrap:balance;letter-spacing:-.01em;
+  }
+  .hero p{margin:0 0 26px;color:var(--muted);max-width:46ch}
+  .hero .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:820px){.hero__inner{grid-template-columns:1fr;gap:40px;padding:48px 24px}}
+
+  .btn{
+    font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+    padding:14px 22px;text-decoration:none;display:inline-block;border:1.5px solid var(--ink);
+  }
+  .btn--solid{background:var(--ink);color:var(--ground)}
+  .btn--solid:hover{background:transparent;color:var(--ink)}
+  .btn--ghost{background:transparent;color:var(--ink)}
+  .btn--ghost:hover{background:var(--ink);color:var(--ground)}
+
+  /* ---- section frame ---- */
+  section{padding:66px 0;border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:36px}
+  .sec-head .no{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--muted)}
+  .sec-head h2{
+    font-family:var(--disp);font-weight:400;font-size:clamp(19px,2.6vw,26px);
+    letter-spacing:.01em;margin:0;transform:skewX(-8deg);
+  }
+  .sec-head h2 span{display:inline-block}
+
+  /* ---- capabilities grid ---- */
+  .cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);background:var(--line)}
+  .cap{background:var(--panel);padding:30px 26px;display:flex;flex-direction:column;gap:12px;min-height:190px}
+  .cap .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .cap h3{font-family:var(--sans);font-weight:600;font-size:19px;margin:0}
+  .cap p{margin:0;color:var(--muted);font-size:15px}
+  @media(max-width:820px){.cap-grid{grid-template-columns:1fr}}
+
+  /* ---- spec / equipment title block ---- */
+  .spec{border:1px solid var(--line-strong);background:var(--panel)}
+  .spec__top{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--line-strong);gap:16px;flex-wrap:wrap}
+  .spec__top .t{font-family:var(--disp);font-size:16px;transform:skewX(-8deg)}
+  .spec__top .meta{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .spec__rows{display:grid;grid-template-columns:1fr 1fr}
+  .field{padding:20px 22px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+  .field:nth-child(2n){border-right:none}
+  .spec__rows .field:nth-last-child(-n+2){border-bottom:none}
+  .field .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field .v{font-size:16px;font-weight:500}
+  .field .v em{font-style:normal;color:var(--muted);font-weight:400}
+  @media(max-width:620px){.spec__rows{grid-template-columns:1fr}.field{border-right:none!important}.spec__rows .field:nth-last-child(2){border-bottom:1px solid var(--line)}}
+
+  /* ---- approach list ---- */
+  .approach{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .approach ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:18px}
+  .approach li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .approach li .mk{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+  .approach li b{font-weight:600}
+  .approach li span.d{color:var(--muted);display:block;font-size:15px}
+  .approach .lead{font-size:18px;line-height:1.55;max-width:38ch}
+  .approach .lead .note{display:block;margin-top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);line-height:1.7}
+  @media(max-width:820px){.approach{grid-template-columns:1fr;gap:28px}}
+
+  /* ---- contact ---- */
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-strong)}
+  .contact__l{padding:40px 34px;border-right:1px solid var(--line-strong)}
+  .contact__l h2{font-family:var(--disp);font-weight:400;font-size:clamp(20px,3vw,30px);transform:skewX(-8deg);margin:0 0 14px}
+  .contact__l p{color:var(--muted);margin:0 0 26px;max-width:34ch}
+  .contact__r{padding:40px 34px;display:flex;flex-direction:column;gap:22px}
+  .cline .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .cline .v{font-size:17px;font-weight:500}
+  .cline .v a{text-decoration:none;border-bottom:1px solid var(--muted)}
+  .cline .v a:hover{border-bottom-color:var(--ink)}
+  .fill{color:var(--muted);font-style:italic;font-weight:400;font-size:14px;font-family:var(--mono)}
+  @media(max-width:620px){.contact{grid-template-columns:1fr}.contact__l{border-right:none;border-bottom:1px solid var(--line-strong)}}
+
+  /* ---- footer ---- */
+  footer{background:var(--ink);color:var(--ground);--logo-cut:var(--ink)}
+  footer .in{max-width:var(--maxw);margin:0 auto;padding:40px 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  footer .sps__word,footer .sps__desc{color:var(--ground)}
+  footer .sps__word{font-size:40px}
+  footer .sps__rule{height:5px}
+  footer .sps__desc{font-size:11px}
+  footer .fmeta{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,244,242,.6);text-align:right;line-height:1.9}
+</style>
+
+<header class="top">
+  <div class="bar">
+    <div class="top__lockup">
+      <div class="sps"><div class="sps__word"><span class="sps__s">S</span>P<span class="sps__s">S</span></div><div class="sps__rule"></div></div>
+      <div class="top__bar-v"></div>
+      <div class="top__desc">Sahni Precision<br>Systems</div>
+    </div>
+    <nav class="top__nav">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#equipment">Equipment</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle light and dark theme">Theme</button>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero__inner">
+      <div class="hero__mark sps sps--center">
+        <div class="sps__word"><span class="sps__s">S</span>P<span class="sps__s">S</span></div>
+        <div class="sps__rule"></div>
+        <div class="sps__desc">Sahni Precision Systems</div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:18px">Precision CNC Machining · San Antonio, TX</div>
+        <h1>Tight-tolerance machined parts, made one at a time and made right.</h1>
+        <p>A precision CNC machine shop building close-tolerance metal parts for prototype and low-volume work — with the traceability and quality discipline that defense and aerospace suppliers require.</p>
+        <div class="cta-row">
+          <a class="btn btn--solid" href="#contact">Request a Quote</a>
+          <a class="btn btn--ghost" href="#capabilities">What We Do</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="sec-head"><span class="no">01</span><h2><span>Capabilities</span></h2></div>
+      <div class="cap-grid">
+        <div class="cap">
+          <span class="k">Milling</span>
+          <h3>3-Axis CNC Milling</h3>
+          <p>Close-tolerance milling of aluminum, steel, and stainless — brackets, plates, housings, and custom mechanical components.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Prototype</span>
+          <h3>Prototyping &amp; First Articles</h3>
+          <p>From a print or a model to a proven first part, with the inspection record to back it up before a run starts.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Production</span>
+          <h3>Low-Volume Runs</h3>
+          <p>Short and repeat production where consistency part-to-part matters more than raw volume.</p>
+        </div>
+        <div class="cap">
+          <span class="k">One-Off</span>
+          <h3>Single Parts &amp; Repairs</h3>
+          <p>Replacement components and one-off pieces machined to a drawing or reverse-engineered from a sample.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Materials</span>
+          <h3>Metals &amp; Traceability</h3>
+          <p>Aluminum and steel alloys with material certifications retained, so every part can be traced back to its stock.</p>
+        </div>
+        <div class="cap">
+          <span class="k">Inspection</span>
+          <h3>Dimensional Inspection</h3>
+          <p>Parts checked against the print and documented — measurements recorded, not assumed.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPMENT -->
+    <section id="equipment">
+      <div class="sec-head"><span class="no">02</span><h2><span>Equipment</span></h2></div>
+      <div class="spec">
+        <div class="spec__top">
+          <div class="t">Haas Super Mini Mill</div>
+          <div class="meta">Vertical Machining Center · 3-Axis CNC</div>
+        </div>
+        <div class="spec__rows">
+          <div class="field">
+            <div class="k">Type</div>
+            <div class="v">3-axis CNC vertical mill</div>
+          </div>
+          <div class="field">
+            <div class="k">Work Envelope</div>
+            <div class="v"><span class="fill">[ add travels — e.g. 16" × 12" × 10" ]</span></div>
+          </div>
+          <div class="field">
+            <div class="k">Control</div>
+            <div class="v">Haas CNC control</div>
+          </div>
+          <div class="field">
+            <div class="k">Materials</div>
+            <div class="v">Aluminum · steel · stainless <em>and other machinable metals</em></div>
+          </div>
+          <div class="field">
+            <div class="k">Best For</div>
+            <div class="v">Small precision parts, prototypes, low-volume production</div>
+          </div>
+          <div class="field">
+            <div class="k">Commissioned</div>
+            <div class="v">2026 · San Antonio, TX</div>
+          </div>
+        </div>
+      </div>
+      <p style="font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--muted);margin:18px 0 0">
+        Capacity is growing. Have a part that needs more machine than one mill? Ask — we will tell you honestly whether it fits.
+      </p>
+    </section>
+
+    <!-- APPROACH -->
+    <section id="approach">
+      <div class="sec-head"><span class="no">03</span><h2><span>How We Work</span></h2></div>
+      <div class="approach">
+        <div>
+          <p class="lead">A new shop, run to a standard older than the shop.
+          <span class="note">Sahni Precision Systems is a Texas company formed in 2026 and owner-operated. We build the quality record — inspection, calibration, and material traceability — from part one, so it is there when a customer asks for it.</span>
+          </p>
+        </div>
+        <ul>
+          <li><span class="mk">→</span><span><b>Machined to the print.</b><span class="d">You give us the drawing or model and the tolerances; we hold them or we tell you before we cut.</span></span></li>
+          <li><span class="mk">→</span><span><b>Traceable materials.</b><span class="d">Material certs are kept and tied to your parts — full traceability from stock to shipped part.</span></span></li>
+          <li><span class="mk">→</span><span><b>Documented inspection.</b><span class="d">Critical dimensions are measured and recorded, not eyeballed.</span></span></li>
+          <li><span class="mk">→</span><span><b>Built for the defense path.</b><span class="d">Quality and export-control practices are being established toward the standards primes require.</span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="border-bottom:none">
+      <div class="sec-head"><span class="no">04</span><h2><span>Get a Quote</span></h2></div>
+      <div class="contact">
+        <div class="contact__l">
+          <h2>Send us your part.</h2>
+          <p>Email your drawing, STEP file, or a photo and description. We will come back with questions, feasibility, and a price.</p>
+          <a class="btn btn--solid" href="mailto:info@sahniprecision.com?subject=Quote%20Request">Email a Drawing</a>
+        </div>
+        <div class="contact__r">
+          <div class="cline">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:info@sahniprecision.com">info@sahniprecision.com</a></div>
+          </div>
+          <div class="cline">
+            <div class="k">Phone</div>
+            <div class="v"><span class="fill">[ add phone number ]</span></div>
+          </div>
+          <div class="cline">
+            <div class="k">Location</div>
+            <div class="v">San Antonio, Texas <span class="fill">[ add address if public ]</span></div>
+          </div>
+          <div class="cline">
+            <div class="k">Company</div>
+            <div class="v">Sahni Precision Systems LLC</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="in">
+    <div class="sps">
+      <div class="sps__word"><span class="sps__s">S</span>P<span class="sps__s">S</span></div>
+      <div class="sps__rule"></div>
+      <div class="sps__desc">Sahni Precision Systems</div>
+    </div>
+    <div class="fmeta">
+      Sahni Precision Systems LLC<br>
+      Precision CNC Machining · San Antonio, TX<br>
+      © 2026 · All rights reserved
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btn=document.getElementById('themeBtn');
+    function current(){
+      var t=root.getAttribute('data-theme');
+      if(t) return t;
+      return window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';
+    }
+    btn.addEventListener('click',function(){
+      var next=current()==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('sps-theme',next);}catch(e){}
+    });
+    try{var s=localStorage.getItem('sps-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  })();
+</script>
